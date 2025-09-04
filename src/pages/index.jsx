@@ -8,11 +8,6 @@ export default function Home() {
    const [open, setOpen] = useState(false)
    useEffect(() => {
 
-
-      window.addEventListener('scroll', (e) => {
-         // if (true) { setOpen(false); }
-      })
-
       // menuToggle()
       // ============== LOADER FUNCTION ==============
       function Loader() {
@@ -138,7 +133,7 @@ export default function Home() {
             delay: 0.3
          }, "b")
          .to("#parent-2-top-text>h1", {
-            fontSize: "30px",
+            // fontSize: "30px",
             delay: 1,
             duration: 2
          }, "b")
@@ -195,7 +190,7 @@ export default function Home() {
             duration: 1,
          }, "b")
          .to("#page2 .page-2-img-sec", {
-            height: "17%",
+            // height: "17%",
             duration: 1,
          }, "b");
 
@@ -282,7 +277,17 @@ export default function Home() {
          e.stopPropagation();
       }, { passive: true });
 
-
+      gsap.to("#page3-parent-container", {
+         scrollTrigger: {
+            trigger: "#page3-container",
+            scroller: "body",
+            start: "5% 75%",
+            end: "70% 0%",
+            scrub: true,
+            markers: true
+         },
+         width: "100%",
+      })
       // Page3 scroll animation
       let tl3 = gsap.timeline({
          scrollTrigger: {
@@ -296,19 +301,11 @@ export default function Home() {
       });
 
       tl3
-         .to("#page3-parent-container", {
-            width: "100%",
-            height: "250vh",
-            duration: 0.5,
-         }, "a")
+
          .to("#page3-text-top h2", {
             transform: "translateY(0%)",
             duration: 0.5,
          }, "a")
-         .to("#dabba #div-img4", {
-            display: "block",
-            duration: 0.1
-         })
          .to("#text-float .title1", {
             transform: "translateX(30%)",
             ease: "power2.out",
@@ -321,7 +318,6 @@ export default function Home() {
          }, "f")
 
       return () => {
-         window.removeEventListener("scroll", handleScroll);
          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
          gsap.globalTimeline.clear(); // kill timelines if needed
       };
@@ -373,14 +369,14 @@ export default function Home() {
             </div>
 
             <div className="dabba-wrapper">
-              <div className={`dabba-in ${open ? 'dabba-anime' : null}`}>
-                  <img id="div-img2" src="/l-1.jpg" alt="" />
+               <div className={`dabba-in ${open ? 'dabba-anime' : null}`}>
+                  <img id="div-img2" src="/back2.jpg" alt="" />
                </div>
             </div>
-            <div className="dabba-wrapper"><img id="div-img3" src="/l-2.jpg" alt="" /></div>
+            <div className="dabba-wrapper"><img id="div-img3" src="/back3.jpg" alt="" /></div>
             <div className="dabba-wrapper"><img id="div-img4" src="/l-6.jpg" alt="" /></div>
          </div>
-         <div id="main" className={open?'main-down':null}>
+         <div id="main" className={open ? 'main-down' : null}>
 
             <div id="page1-container" className={open ? 'page-anime page-open' : null}>
                <div id="text">
@@ -405,8 +401,8 @@ export default function Home() {
                         <img src="/l-3.jpg" alt="" />
                      </div>
                      <div id="part1">
-                        <div id="head-text">
-                           <h2 id="head-text-content">Your Vision. Our Landscape</h2>
+                        <div id="head-text" >
+                           <h2 id="head-text-content" className="fw5" >Your Vision. Our Landscape</h2>
                         </div>
                         <div id="container">
                            <div className="elems" id="elems1">
@@ -433,7 +429,7 @@ export default function Home() {
                         </span>
                      </div>
                      <div id="partzero">
-                        <img src="./l-7.jpg" alt="" />
+                        <img src="./hero2.jpg" alt="" />
                      </div>
                      <div className="lol" id="partzero">
                         <img src="./l-8.jpg" alt="" />
@@ -441,7 +437,7 @@ export default function Home() {
                   </div>
                   <div id="parent-2">
                      <div id="parent-2-top-text">
-                        <h1>Why Film in Greece</h1>
+                        <h1 className="fw5">Why Film in Greece</h1>
                      </div>
                      <h2 style={{ textAlign: "center" }} className="centered-text">
                         A Cinematic Playground Like No Other <br />
@@ -466,52 +462,52 @@ export default function Home() {
             <div id="page2-container" className={open ? 'page-anime page-open' : null}>
                <div id="page2">
                   <div id="page2-text-top">
-                     <h2>Filming locations Showcase</h2>
+                     <h2 className="fw5">Filming locations Showcase</h2>
                   </div>
                   <div className="page-2-img-sec" id="image-sec-1">
                      <div id="img">
-                        <img src="./l-1.jpg" alt="" />
-                        <h3 className="img-caption">Blue Skies of Greece</h3>
+                        <img src="/filming-locations/i1.jpg" alt="" />
+                        <h3 className="img-caption">Beaches & Coastlines</h3>
                      </div>
                      <div className="down-img" id="img">
-                        <img src="./l-2.jpg" alt="" />
-                        <h3 className="img-caption">Historic Island Views</h3>
+                        <img src="/filming-locations/i2.jpg" alt="" />
+                        <h3 className="img-caption">Mountains & Valleys</h3>
                      </div>
                      <div id="img">
-                        <img src="./l-3.jpg" alt="" />
-                        <h3 className="img-caption">Ancient City Charm</h3>
+                        <img src="/filming-locations/i3.jpg" alt="" />
+                        <h3 className="img-caption">Ancient Ruins & Archaeological Sites</h3>
                      </div>
                      <div className="width-big" id="img">
-                        <img src="./l-7.jpg" alt="" />
-                        <h3 className="img-caption">Sunset Over Ruins</h3>
+                        <img src="/filming-locations/i4.jpg" alt="" />
+                        <h3 className="img-caption">Picturesque Villages</h3>
                      </div>
                      <div id="img">
-                        <img src="./l-5.jpg" alt="" />
-                        <h3 className="img-caption">Vibrant Coastal Life</h3>
+                        <img src="/filming-locations/i5.jpg" alt="" />
+                        <h3 className="img-caption">Urban Cityscapes</h3>
                      </div>
                   </div>
                   <div className="page-2-img-sec" id="image-sec-2">
                      <div id="img">
-                        <img src="./l-1.jpg" alt="" />
-                        <h3 className="img-caption">Blue Skies of Greece</h3>
+                        <img src="/filming-locations/i6.jpg" alt="" />
+                        <h3 className="img-caption">Islands & Harbors</h3>
                      </div>
                      <div className="down-img bottom-down" id="img">
-                        <img src="./l-2.jpg" alt="" />
-                        <h3 className="img-caption">Historic Island Views</h3>
+                        <img src="/filming-locations/i7.jpg" alt="" />
+                        <h3 className="img-caption">Castles & Fortresses</h3>
                      </div>
                      <div id="img">
-                        <img src="./l-3.jpg" alt="" />
-                        <h3 className="img-caption">Ancient City Charm</h3>
+                        <img src="/filming-locations/i8.jpg" alt="" />
+                        <h3 className="img-caption">Lakes & Rivers</h3>
                      </div>
                      <div className="down-img width-big bottom-down" id="img">
                         <div id="normal-part">
-                           <img src="./l-7.jpg" alt="" />
-                           <h3 className="img-caption">Sunset Over Ruins</h3>
+                           <img src="/filming-locations/i9.jpg" alt="" />
+                           <h3 className="img-caption">Caves & Gorges</h3>
                         </div>
                      </div>
                      <div id="img">
-                        <img src="./l-5.jpg" alt="" />
-                        <h3 className="img-caption">Vibrant Coastal Life</h3>
+                        <img src="/filming-locations/i10.jpg" alt="" />
+                        <h3 className="img-caption">Vineyards & Olive Groves</h3>
                      </div>
                   </div>
                </div>
@@ -537,50 +533,49 @@ export default function Home() {
                   <div id="page3">
                      <div className="p3-elems">
                         <h1>
-                           STRATÉGIE DE <img src="./l-1.jpg" alt="" /> MARQUE
+                           Location Scouting  <img src="/services/serv1.jpg" alt="" /> & Permits
                         </h1>
                      </div>
                      <div className="p3-elems">
-                        <img src="./l-2.jpg" alt="" />
-                        <h1>IDENTITÉ VISUELLE</h1>
+                        <img src="/services/serv2.jpg" alt="" />
+                        <h1>Production Management</h1>
                      </div>
                      <div className="p3-elems">
                         <h1>
-                           DIRECTION ARTISTIQUE <img src="./l-3.jpg" alt="" />
+                           Crew & Casting <img src="./l-3.jpg" alt="" />
                         </h1>
                      </div>
                      <div className="p3-elems">
-                        <img src="./l-5.jpg" alt="" />
-                        <h1>SITE INTERNET</h1>
+                        <img src="/services/serv3.jpg" alt="" />
+                        <h1>Equipment & Logistics</h1>
                      </div>
                      <div className="p3-elems">
                         <h1>
-                           EVENT &amp; COMMUNITY <img src="./l-8.jpg" alt="" />
+                           Drone & Aerial Filming <img src="/services/serv4.jpg" alt="" />
                         </h1>
                      </div>
                   </div>
                   <div id="text-float">
                      <h1 className="float-title title1">
-                        Filming made easy in Greece. Your shoot, our expertise. Seamless
-                        production, stunning locations. Local support, global standards.
-                        Greece, captured perfectly. Filming made easy in Greece. Your shoot,
-                        our expertise. Seamless production, stunning locations. Local
-                        support, global standards. Greece, captured perfectly. Filming made
-                        easy in Greece. Your shoot, our expertise. Seamless production,
-                        stunning locations. Local support, global standards. Greece,
-                        captured perfectly.
+                        Filming made easy in Greece. &nbsp;&nbsp;Your shoot, our expertise. &nbsp;&nbsp;Seamless
+                        production, stunning locations. &nbsp;&nbsp;Local support, global standards. &nbsp;&nbsp;
+                        Greece, captured perfectly. &nbsp;&nbsp; Filming made easy in Greece. &nbsp;&nbsp;Your shoot,
+                        our expertise. &nbsp;&nbsp;Seamless production, stunning locations. &nbsp;&nbsp;Local
+                        support, global standards. &nbsp;&nbsp;Greece, captured perfectly. &nbsp;&nbsp;Filming made
+                        easy in Greece. &nbsp;&nbsp;
+
                      </h1>
                      <div className="float-img">
-                        <img src="./Text float.png" alt="Statue" />
+                        <img src="/greece-idol.png" alt="Statue" />
                      </div>
                      <h1 className="float-title title2">
-                        Filming made easy in Greece. Your shoot, our expertise. Seamless
-                        production, stunning locations. Local support, global standards.
-                        Greece, captured perfectly. Filming made easy in Greece. Your shoot,
-                        our expertise. Seamless production, stunning locations. Local
-                        support, global standards. Greece, captured perfectly. Filming made
-                        easy in Greece. Your shoot, our expertise. Seamless production,
-                        stunning locations. Local support, global standards. Greece,
+                        Filming made easy in Greece.&nbsp;&nbsp; Your shoot, our expertise.&nbsp;&nbsp; Seamless
+                        production, stunning locations.&nbsp;&nbsp; Local support, global standards.&nbsp;&nbsp;
+                        Greece, captured perfectly.&nbsp;&nbsp; Filming made easy in Greece.&nbsp;&nbsp; Your shoot,
+                        our expertise.&nbsp;&nbsp; Seamless production, stunning locations.&nbsp;&nbsp; Local
+                        support, global standards.&nbsp;&nbsp; Greece, captured perfectly.&nbsp;&nbsp; Filming made
+                        easy in Greece.&nbsp;&nbsp; Your shoot, our expertise.&nbsp;&nbsp; Seamless production,
+                        stunning locations.&nbsp;&nbsp; Local support, global standards. Greece,
                         captured perfectly.
                      </h1>
                      {/* <button class="float-btn">START PLANNING</button> */}
@@ -592,17 +587,17 @@ export default function Home() {
                      <div className="footer-col">
                         <h4>Contact</h4>
                         <p>
-                           <a href="mailto:contact@giannitan.com">contact@giannitan.com</a>
+                           <a href="mailto:contact@oneworldhighwayproduction.com">contact@oneworldhighwayproduction.com</a>
                         </p>
                         <p>
-                           <a href="tel:+31628331595">+31 6 28331595</a>
+                           <a href="tel:+919819350779">+91 98193 50779</a>
                         </p>
                         <p>
-                           <a href="">Weesp, The Netherlands</a>
+                           <a href="">Athens, Greece</a>
                         </p>
                      </div>
                      {/* General */}
-                     <div className="footer-col">
+                     {/* <div className="footer-col">
                         <h4>General</h4>
                         <p>
                            <a href="#">Company No. #900209102</a>
@@ -613,31 +608,30 @@ export default function Home() {
                         <p>
                            <a href="#">Cookie Statement</a>
                         </p>
-                     </div>
+                     </div> */}
                      {/* Services */}
                      <div className="footer-col">
-                        <h4>Services</h4>
+                        <h4>Links</h4>
                         <p>
-                           <a href="#">Webdesign</a>
+                           <a href="#">Home</a>
                         </p>
                         <p>
-                           <a href="#">Web Support</a>
+                           <a href="#">Work</a>
                         </p>
                         <p>
-                           <a href="#">Branding</a>
+                           <a href="#">Contact</a>
                         </p>
                      </div>
                      {/* About */}
                      <div className="footer-col brand">
-                        <h2>GianniTan</h2>
+                        <h2>One World Highway Production</h2>
                         <h5>
-                           GianniTan redefines client experience with bespoke, high-end
-                           websites and exclusive brand identities.
+                           One World Highway Productions offers end-to-end filming services in Greece. From permits and crews to breathtaking locations, we make production seamless.
                         </h5>
                      </div>
                   </div>
                   <div className="footer-bottom">
-                     <h5>© GianniTan 2025 All rights reserved.</h5>
+                     <h4>© One World Highway Production 2025 All rights reserved. &nbsp;| &nbsp;Developed by <span className="vyu-span"><Link href={"https://www.thevyu.com"} target="_blank">The Vyu</Link></span></h4>
                      <div className="social-links">
                         <a href="#">Instagram</a>
                         <a href="#">LinkedIn</a>
