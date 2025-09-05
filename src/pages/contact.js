@@ -4,6 +4,7 @@ import Contact from "../../components/contact/Contact"
 import { toggleMenu } from "../../utils/common";
 import gsap from "gsap/dist/gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import Footer from "../../components/common/Footer";
 
 export default function ContactPage() {
   const [open, setOpen] = useState(false);
@@ -19,6 +20,7 @@ export default function ContactPage() {
     <>
       <Navbar onClick={() => toggleMenu(open, setOpen)} />
       <Contact open={open} />
+      <Footer />
     </>
   )
 

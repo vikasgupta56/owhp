@@ -1,7 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 
 const Navbar = ({onClick}) => {
+     const router = useRouter();
+  const isHome = router.pathname === "/home";
+  const isWork = router.pathname === "/work";
+  const isContact = router.pathname === "/contact"
     return (
         <>
             <button id="menu-button" onClick={onClick}>Menu</button>

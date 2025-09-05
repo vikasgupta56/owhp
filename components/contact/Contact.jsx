@@ -1,10 +1,60 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useRouter } from 'next/router'
 
 const Contact = ({ open }) => {
+    const router = useRouter();
+    const [user, setUser] = useState({
+        name: "", phone: "", email: "", message: ""
+    })
 
-    let submit = () =>{
-        alert("We got your request. We'll contact you soon")
+    // Regex patterns
+    const regex = {
+        email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        phone: /^\+?[1-9]\d{1,14}$/,
+    };
+
+    function validateForm(user) {
+        if (!user.name) {
+            return { valid: false, error: "Name cannot be empty." };
+        }
+        if (!user.email) {
+            return { valid: false, error: "Email cannot be empty." };
+        }
+        else if (!regex.email.test(user.email)) {
+            return { valid: false, error: "Please enter a valid email address." };
+        }
+        if (!user.phone) {
+            return { valid: false, error: "Phone cannot be empty." };
+        }
+        if (!regex.phone.test(user.phone)) {
+            return { valid: false, error: "Please enter a valid phone number." };
+        }
+        if (!user.message) {
+            return { valid: false, error: "Message cannot be empty." };
+        }
+        return { valid: true };
     }
+
+    let onChange = (e) => {
+        e.preventDefault();
+        let { name, value } = e.target
+        setUser({ ...user, [name]: value })
+    }
+
+    let submit = (e) => {
+        e.preventDefault();
+
+        const validation = validateForm(user);
+        if (!validation.valid) {
+            alert(validation.error); // or set an error state
+            return;
+        }
+
+        alert("We got your request. We'll contact you soon");
+        setUser({ name: "", phone: "", email: "", message: "" });
+        router.push('/');
+    };
+
     return (
         <>
             <div id="contact-page">
@@ -24,7 +74,7 @@ const Contact = ({ open }) => {
                         </h1>
                     </div>
                     <div className="contact-form-box">
-                        <form className="contact-form">
+                        <form className="contact-form" onSubmit={submit}>
                             <div className="contact-form-main">
                                 <span>
                                     Hello! My name is
@@ -32,7 +82,9 @@ const Contact = ({ open }) => {
                                         type="text"
                                         placeholder="type..."
                                         className="contact-input"
-                                        required=""
+                                        name="name"
+                                        value={user.name}
+                                        onChange={onChange}
                                     />
                                     ,
                                 </span>
@@ -42,17 +94,21 @@ const Contact = ({ open }) => {
                                         type="email"
                                         placeholder="type..."
                                         className="contact-input"
-                                        required=""
+                                        name="email"
+                                        value={user.email}
+                                        onChange={onChange}
                                     />
                                 </span>
                                 <br />
                                 <span>
                                     and my phone number
                                     <input
-                                        type="text"
+                                        type="phone"
                                         placeholder="type..."
                                         className="contact-input"
-                                        required=""
+                                        name="phone"
+                                        value={user.phone}
+                                        onChange={onChange}
                                     />
                                 </span>
                                 <br />
@@ -62,17 +118,15 @@ const Contact = ({ open }) => {
                                         type="text"
                                         placeholder="type..."
                                         className="contact-input"
-                                        required=""
+                                        name="message"
+                                        value={user.message}
+                                        onChange={onChange}
                                     />
                                 </span>
                             </div>
                             <div className="contact-form-footer">
                                 <div className="contact-terms">
-                                    {/* <small>
-                                        By clicking the button, you agree to One World Production’s
-                                        <br />
-                                        Terms of Use and Privacy Policy
-                                    </small> */}
+
                                 </div>
                                 <div className="contact-side-info">
                                     <div className="contact-side-label">PHONE</div>
@@ -81,7 +135,7 @@ const Contact = ({ open }) => {
                                     <div className="contact-side-value">contact@oneworldhighwayproduction.com</div>
                                 </div>
                             </div>
-                            <button type="submit" onClick={submit} className="contact-submit">
+                            <button type="submit" className="contact-submit">
                                 SUBMIT
                             </button>
                         </form>

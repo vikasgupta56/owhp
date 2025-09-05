@@ -8,6 +8,7 @@ import Section3 from "../../components/home/Section3";
 import Dabba from "../../components/common/Dabba";
 import Navbar from "../../components/common/Navbar";
 import { toggleMenu } from "../../utils/common";
+import Footer from "../../components/common/Footer";
 
 export default function Home() {
    const [open, setOpen] = useState(false);
@@ -32,7 +33,7 @@ export default function Home() {
             <Section2 open={open} />
             <div id="gap" />
             <Section3 open={open} />
-
+            <Footer />
          </div>
       </>
 
