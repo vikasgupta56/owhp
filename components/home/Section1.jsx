@@ -1,74 +1,219 @@
 import React, { useEffect } from 'react'
 import gsap from 'gsap/dist/gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { isMobile } from '../../utils/common';
+import l1 from "../../public/greece/l-1.webp"
+import l2 from "../../public/greece/l-2.webp"
+import l3 from "../../public/greece/l-3.webp"
+import l7 from "../../public/greece/l-7.webp"
+import l8 from "../../public/greece/l-8.webp"
+import l5 from "../../public/greece/l-5.webp"
+import Image from 'next/image';
+import l6 from "../../public/greece/l-6.webp"
+
+
+
+
 
 const Section1 = ({ open }) => {
     gsap.registerPlugin(ScrollTrigger);
 
-    useEffect(() => {
-        function Loader() {
-            document.body.style.overflow = "hidden";
+    function ResponsiveLoader() {
+        // Loader ke time scroll disable kar do
+        document.body.style.overflow = "hidden";
 
-            var tl = gsap.timeline();
-            var span = document.querySelector('#page1 span');
-            var count = 0;
-            var maxCount = 100;
-            var animationDuration = 0.1; //3
-            var interval = animationDuration * 1000 / maxCount;
+        var tl = gsap.timeline();
+        var span = document.querySelector('#page1 span');
+        var count = 0;
+        var maxCount = 50; // Faster loader for mobile
+        var animationDuration = 1.2; // Shorter duration
+        var interval = animationDuration * 1000 / maxCount;
 
-            // Counter start kar do
-            var counterInterval = setInterval(function () {
-                if (count < maxCount) {
-                    count++;
-                    span.innerText = count;
-                } else {
-                    clearInterval(counterInterval);
-                }
-            }, interval);
+        // Counter start kar do
+        var counterInterval = setInterval(function () {
+            if (count < maxCount) {
+                count++;
+                span.innerText = count;
+            } else {
+                clearInterval(counterInterval);
+            }
+        }, interval);
 
-            tl.to("#container", {
-                width: "20vw",
-                height: "47vh",
-                ease: "power2.inOut",
-                duration: 2
-            });
+        tl.to("#container", {
+            width: "35vw",
+            height: "35vh",
+            ease: "power2.inOut",
+            duration: 1
+        });
 
+        tl.to("#elems2", {
+            clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
+            duration: 0.3,
+        }, "a");
+        tl.to("#elems3", {
+            clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
+            duration: 0.3,
+            delay: 0.2
+        }, "a");
+        tl.to("#elems4", {
+            clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
+            duration: 0.3,
+            delay: 0.4
+        }, "a");
+        tl.to("#elems5", {
+            clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
+            duration: 0.3,
+            delay: 0.6
+        }, "a");
+        tl.to("#elems6", {
+            clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
+            duration: 0.3,
+            delay: 0.8
+        }, "a");
+        tl.to("#page1 #count", {
+            autoAlpha: 0,
+            duration: 0.3,
+            onComplete: function () {
+                document.getElementById("count").style.display = "none";
+            }
+        }, "b")
 
-            tl.to("#page1", {
-                position: "absolute",
-                top: "32%",
-                width: "90vw",
-                duration: 1,
-                delay: 0.1,
-                onComplete: function () {
-                    // Loader complete hone ke baad scroll enable kar do
-                    document.body.style.overflow = "auto";
-                    // Extra ensure karo ki scroll top par hai
-                    window.scrollTo(0, 0);
-                }
-            }, "c")
-            tl.to("#parent", {
-                height: "70vh",
-                duration: 1
-            }, "d")
-            tl.to("#partzero", {
-                height: "47vh",
-                duration: 1
-            }, "d")
-            tl.to("#head-text", {
-                display: "block",
-                duration: 1
-            }, "d")
-            tl.to("#parent-2", {
-                display: "flex",
-                duration: 1
-            }, "d")
-        }
-        Loader();
+        tl.to("#page1", {
+            position: "absolute",
+            top: "23%",
+            width: "100vw",
+            duration: 0.5,
+            delay: 0.05,
+            onComplete: function () {
+                // Loader complete hone ke baad scroll enable kar do
+                document.body.style.overflow = "auto";
+                window.scrollTo(0, 0);
+            }
+        }, "c")
+        tl.to("#parent", {
+            height: "190vh",
+            duration: 0.5
+        }, "d")
+        tl.to("#partzero", {
+            display: "none",
+            width: "80%",
+            duration: 0.5
+        }, "d")
+        tl.to("#container", {
+            display: "none",
+            width: "88vw",
+            duration: 0.5
+        }, "d")
+        tl.to("#head-text", {
+            display: "block",
+            duration: 0.5
+        }, "d")
+        tl.to("#parent-2", {
+            display: "flex",
+            duration: 0.5
+        }, "d")
+        tl.to("#res", {
+            display: "flex",
+            duration: 0.5
+        })
+    }
+    function Loader() {
+        // Loader ke time scroll disable kar do
+        document.body.style.overflow = "hidden";
 
-        // ============== SCROLL ANIMATIONS ==============
+        var tl = gsap.timeline();
+        var span = document.querySelector('#page1 span');
+        var count = 0;
+        var maxCount = 100;
+        var animationDuration = 3;
+        var interval = animationDuration * 1000 / maxCount;
 
-        // Text ko slide up karo jab page1 grow ho
+        // Counter start kar do
+        let imgDuration = .5
+
+        var counterInterval = setInterval(function () {
+            if (count < maxCount) {
+                count++;
+                span.innerText = count;
+            } else {
+                clearInterval(counterInterval);
+            }
+        }, interval);
+
+        tl.to("#container", {
+            width: "20vw",
+            height: "47vh",
+            ease: "power2.inOut",
+            duration: 1.7
+        });
+
+        tl.to("#elems2", {
+            clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
+            duration: 0.3,
+        }, "a");
+        tl.to("#elems3", {
+            clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
+            duration: 0.3,
+            delay: 0.3
+        }, "a");
+        tl.to("#elems4", {
+            clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
+            duration: 0.3,
+            delay: .6
+        }, "a");
+        tl.to("#elems5", {
+            clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
+            duration: 0.3,
+            delay: .9
+        }, "a");
+        tl.to("#elems6", {
+            clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
+            duration: 0.3,
+            delay: 1.2
+        }, "a");
+        tl.to("#page1 #count", {
+            autoAlpha: 0,
+            duration: 0.5,
+            onComplete: function () {
+                document.getElementById("count").style.display = "none";
+            }
+        }, "b")
+
+        tl.to("#page1", {
+            position: "absolute",
+            top: "32%",
+            width: "90vw",
+            duration: .7,
+            delay: 0.1,
+            onComplete: function () {
+                // Loader complete hone ke baad scroll enable kar do
+                document.body.style.overflow = "auto";
+                // Extra ensure karo ki scroll top par hai
+                window.scrollTo(0, 0);
+            }
+        }, "c")
+        tl.to("#main", {
+            zIndex: "unset"
+        }, "d")
+        tl.to("#parent", {
+            height: "70vh",
+            duration: 1
+        }, "d")
+        tl.to("#partzero", {
+            height: "47vh",
+            duration: 1
+        }, "d")
+        tl.to("#head-text", {
+            display: "block",
+            duration: 1
+        }, "d")
+        tl.to("#parent-2", {
+            display: "flex",
+            duration: 1
+        }, "d")
+    }
+
+    let desktopAnimation = () => {
         gsap.to("#text", {
             y: function () {
                 return -document.getElementById("text").offsetHeight;
@@ -98,49 +243,64 @@ const Section1 = ({ open }) => {
                 width: "100%",
                 height: "230vh",
                 duration: 1,
-            },"a")
+            }, "a")
             .to(".lol", {
                 top: "20%",
                 delay: 0.2
-            },"a")
+            }, "a")
             .to("#container", {
                 width: "24vw",
                 height: "60vh",
-            },"a")
+            }, "a")
             .to("#head-text #head-text-content", {
                 transform: "translateY(0%)",
                 delay: 0.5,
-            },"a")
+            }, "a")
             .to("#parent-2-top-text h1", {
                 transform: "translateY(0%)",
                 duration: 1,
                 onStart: function () {
                     document.querySelector('#parent-2-top-text').style.display = 'block';
                 }
-            },"a")
+            }, "a")
             .to("#dabba #div-img2", {
                 opacity: 1,
                 display: "block",
                 duration: 0,
                 delay: 0.3
-            })
+            }, "b")
             .to("#parent-2-top-text h1", {
                 fontSize: "7vh",
                 delay: 1,
                 duration: 2
-            })
+            },)
             .to("#parent-2>h2", {
                 fontSize: "2.1vh",
                 delay: 1,
                 duration: 2
 
-            },"b")
+            }, "b")
             .to("#page1", {
                 width: "80%",
                 // height: "140vh",
                 duration: 1,
                 delay: 1,
-            },"b")
+            }, "b")
+        //  .to("#page2", {
+        //     width: "80%",
+        //     // height: "140vh",
+        //     duration: 1,
+        //     delay: 1,
+        // }, "b")
+    }
+    useEffect(() => {
+        if (isMobile()) {
+            ResponsiveLoader()
+        }
+        else {
+            Loader()
+            desktopAnimation();
+        }
 
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -150,11 +310,11 @@ const Section1 = ({ open }) => {
 
     return (
         <>
-            <div id="page1-container" className={open ? 'page-anime page-open' : null}>
+            <div id="page1-container" className={`mob-none ${open ? 'page-anime page-open' : null}`}>
                 <div id="text">
                     <div id="content">
                         <div id="image">
-                            <img src="/l-1.jpg" alt="" />
+                            <Image src={l1} fill alt="" />
                         </div>
                         <h2>
                             <span style={{ fontSize: 90 }}> One World</span> <br /> Production
@@ -167,10 +327,12 @@ const Section1 = ({ open }) => {
                 <div id="page1">
                     <div id="parent">
                         <div id="partzero">
-                            <img src="/l-1.jpg" alt="" />
+                            <Image src={l1} fill alt="" />
+
                         </div>
                         <div className="lol" id="partzero">
-                            <img src="/l-3.jpg" alt="" />
+                            <Image src={l3} fill alt="" />
+
                         </div>
                         <div id="part1">
                             <div id="head-text" >
@@ -178,22 +340,23 @@ const Section1 = ({ open }) => {
                             </div>
                             <div id="container">
                                 <div className="elems" id="elems1">
-                                    <img src="/l-7.jpg" alt="" />
+                                    <Image src={l7} fill alt="" />
+
                                 </div>
                                 <div className="elems" id="elems2">
-                                    <img src="/l-1.jpg" alt="" />
+                                         <Image src={l1} fill alt="" />
                                 </div>
                                 <div className="elems" id="elems3">
-                                    <img src="/l-8.jpg" alt="" />
+                                          <Image src={l8} fill alt="" />
                                 </div>
                                 <div className="elems" id="elems4">
-                                    <img src="/l-3.jpg" alt="" />
+                                        <Image src={l3} fill alt="" />
                                 </div>
                                 <div className="elems" id="elems5">
-                                    <img src="/l-5.jpg" alt="" />
+                                         <Image src={l5} fill alt="" />
                                 </div>
                                 <div className="elems" id="elems6">
-                                    <img src="/l-6.jpg" alt="" />
+                                        <Image src={l6} fill alt="" />
                                 </div>
                             </div>
                             <span id="count" className="count-bold">
@@ -201,10 +364,10 @@ const Section1 = ({ open }) => {
                             </span>
                         </div>
                         <div id="partzero">
-                            <img src="./hero2.jpg" alt="" />
+                            <Image fill src={l2} alt="" />
                         </div>
                         <div className="lol" id="partzero">
-                            <img src="./l-8.jpg" alt="" />
+       <Image src={l8} fill alt="" />
                         </div>
                     </div>
                     <div id="parent-2">
@@ -230,6 +393,11 @@ const Section1 = ({ open }) => {
 
                 {/* </div> */}
             </div>
+
+
+
+
+
         </>
     )
 }

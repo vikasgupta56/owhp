@@ -1,7 +1,12 @@
-import Link from 'next/link'
 import React, { useEffect } from 'react'
 import gsap from 'gsap/dist/gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import Image from 'next/image';
+import serv1 from "../../public/services/serv1.webp"
+import serv2 from "../../public/services/serv2.webp"
+import serv3 from "../../public/services/serv3.webp"
+import serv4 from "../../public/services/serv4.webp"
+import serv5 from "../../public/services/serv5.webp"
 
 
 const Section3 = ({ open }) => {
@@ -21,9 +26,9 @@ const Section3 = ({ open }) => {
         });
 
         tl3
-        .to("#page3-container", {
-            width: "100vw"
-        }, "a")
+            .to("#page3-container", {
+                width: "100vw"
+            }, "a")
             .to("#page3-text-top h2", {
                 transform: "translateY(0%)",
                 duration: 0.5,
@@ -54,25 +59,44 @@ const Section3 = ({ open }) => {
                     <div id="page3">
                         <div className="p3-elems">
                             <h1>
-                                Location Scouting  <img src="/services/serv1.jpg" alt="" /> & Permits
+                                Location Scouting
+                                <div className="serv-img">
+                                    <Image fill src={serv1} alt="Location Scouting & Permits by One World Produciton Highway - Greece" />
+
+                                </div> & Permits
                             </h1>
                         </div>
                         <div className="p3-elems">
-                            <img src="/services/serv2.jpg" alt="" />
+                            <div className="serv-img">
+                                <Image fill src={serv2} alt="Production Management by One World Produciton Highway - Greece" />
+
+                            </div>
                             <h1>Production Management</h1>
                         </div>
                         <div className="p3-elems">
                             <h1>
-                                Crew & Casting <img src="./l-3.jpg" alt="" />
+                                Crew & Casting
+                                <div className="serv-img">
+                                    <Image fill src={serv3} alt=" Crew & Casting by One World Produciton Highway - Greece" />
+
+                                </div>
                             </h1>
                         </div>
                         <div className="p3-elems">
-                            <img src="/services/serv3.jpg" alt="" />
+                            <div className="serv-img">
+
+                                <Image fill src={serv4} alt="Equipment & Logistics by One World Produciton Highway - Greece" />
+
+                            </div>
                             <h1>Equipment & Logistics</h1>
                         </div>
                         <div className="p3-elems">
                             <h1>
-                                Drone & Aerial Filming <img src="/services/serv4.jpg" alt="" />
+                                Drone & Aerial Filming
+                                <div className="serv-img">
+                                    <Image fill src={serv5} alt="  Drone & Aerial Filming by One World Produciton Highway - Greece" />
+
+                                </div>
                             </h1>
                         </div>
                     </div>
@@ -102,7 +126,7 @@ const Section3 = ({ open }) => {
                         {/* <button class="float-btn">START PLANNING</button> */}
                     </div>
                 </div>
-               
+
             </div>
         </>
     )

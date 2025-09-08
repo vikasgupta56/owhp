@@ -1,0 +1,29 @@
+@media screen and (max-width:768px) {
+    .contact-form-box {
+        padding: 6vw 6vw;
+        width: 94%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .contact-header {
+        display: none;
+    }
+
+    .contact-input {
+        min-width: 40px;
+        width: 120px;
+        font-size: 5vw;
+    }
+
+    .contact-form-main {
+        font-size: 5vw;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-form-main br{
+        display: none;
+    }
+}

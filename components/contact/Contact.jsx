@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
+import Image from 'next/image';
 
 const Contact = ({ open }) => {
     const router = useRouter();
@@ -62,7 +63,7 @@ const Contact = ({ open }) => {
                     <div className="cont-img">
                         <div className="cont-img-rel">
                             <div className="black-overlay"></div>
-                            <img src='/pexels-apasaric-1285625.jpg' />
+                           <Image fill src={"/contact-bg.webp"} />
                         </div>
                     </div>
                     <div className="contact-header">
