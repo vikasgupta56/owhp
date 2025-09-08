@@ -162,7 +162,7 @@ const MobHome = () => {
                     </div>
                     <div className="mh1">
                         <div className="mh1-cont">
-                            <Image src="/l-1.jpg" fill />
+                            <Image src={l1} fill />
                         </div>
                     </div>
                 </div>

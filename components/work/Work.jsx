@@ -1,7 +1,49 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
+import gsap from 'gsap/dist/gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { isMobile } from '../../utils/common'
+
 
 const Work = ({ open }) => {
+
+    let workAnimation = () => {
+        let tl3 = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".work-wrapper",
+                scroller: "body",
+                start: "top 80%",
+                end: "top 60%",
+                scrub: true,
+                // markers: true
+            }
+        });
+
+        tl3
+            .to(".work-wrapper", {
+                width: "100vw"
+            }, "a")
+            .to(".work-inner h1", {
+                transform: "translateY(0%)",
+                duration: 0.5,
+            }, "a")
+    }
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        if (isMobile()) { return; }
+
+        workAnimation();
+
+    }, [])
+
+    useEffect(() => {
+     if(open){
+        gsap.to(".work-main",{
+
+        })
+     }
+    }, [open])
+    
 
     const works = [
         {
@@ -65,26 +107,30 @@ const Work = ({ open }) => {
         },
     ]
     return (
-        <div className={`work-main ${open?'work-down':null}`}>
+        <div className={`work-main ${open ? 'work-down' : null}`}>
             <div className="gap2"></div>
-            <div className={`work-wrapper ${open?'work-open':null}`}>
-          <h1>Our Work</h1>
-                {
-                    works.map((work, i) => {
-                        return (
-                            <div className="work-cont" key={i}>
-                                <h2>{work.name}</h2>
-                                <h3>{work.type}</h3>
-                                {work.starring && <h3>Starring: {work.starring}</h3>}
-                                {work.director && <h3>Directed by {work.director}</h3>}
-                                {work.supervisors && <h3>Project supervisors: {work.supervisors}</h3>}
-                                <h3>Production: {work.production}</h3>
-                                <h3>Filmed at {work.place}</h3>
-                            </div>
-                        )
-                    })
-                }
+            <div className={`work-wrapper ${open ? 'work-open' : null}`}>
+                <div className="work-inner">
+                    <div className="text-hid">
+                        <h1>Our Work</h1>
+                    </div>
 
+                    {
+                        works.map((work, i) => {
+                            return (
+                                <div className="work-cont" key={i}>
+                                    <h2>{work.name}</h2>
+                                    <h3>{work.type}</h3>
+                                    {work.starring && <h3>Starring: {work.starring}</h3>}
+                                    {work.director && <h3>Directed by {work.director}</h3>}
+                                    {work.supervisors && <h3>Project supervisors: {work.supervisors}</h3>}
+                                    <h3>Production: {work.production}</h3>
+                                    <h3>Filmed at {work.place}</h3>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </div>
             <div className="work-back">
                 <div className="dabba-wrapper">
