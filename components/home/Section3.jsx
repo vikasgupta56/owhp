@@ -51,7 +51,7 @@ const Section3 = ({ open }) => {
 
     return (
         <>
-            <div id="page3-container" className={open ? 'page-anime page-open' : null}>
+            <div id="page3-container" className={`page3-mob ${open ? 'page-anime page-open' : null}`}>
                 <div id="page3-parent-container">
                     <div id="page3-text-top">
                         <h2>Our Services</h2>

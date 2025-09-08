@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Contact = ({ open }) => {
     const router = useRouter();
@@ -47,11 +48,11 @@ const Contact = ({ open }) => {
 
         const validation = validateForm(user);
         if (!validation.valid) {
-            alert(validation.error); // or set an error state
+            toast.error(validation.error); // or set an error state
             return;
         }
 
-        alert("We got your request. We'll contact you soon");
+        toast.success("We got your request. We'll contact you soon");
         setUser({ name: "", phone: "", email: "", message: "" });
         router.push('/');
     };
@@ -59,6 +60,7 @@ const Contact = ({ open }) => {
     return (
         <>
             <div id="contact-page">
+                <ToastContainer />
                 <div className={` contact-bg ${open ? 'page-anime page-open' : null}`}>
                     <div className="cont-img">
                         <div className="cont-img-rel">

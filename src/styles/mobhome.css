@@ -210,6 +210,61 @@
         display: none;
     }
 
+    .mob-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100dvh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        z-index: 5;
+    }
+
+    .mob-loader #container {
+        margin: auto;
+        /* top: 50%;
+        transform: translateY(-50%); */
+        width: 70vw;
+        position: relative;
+
+        height: 90vw;
+    }
+
+    #dabba #div-img2 {
+        display: block;
+    }
+
+    .cm {
+        scale: 0;
+    }
+
+    .why-cont {
+        margin-top: 120px;
+        margin-bottom: 50px;
+        padding: 2vw;
+        text-align: center
+    }
+
+    .why-cont h2 {
+        margin-bottom: 20px;
+        font-size: 30px;
+        font-weight: 500;
+    }
+.footer-col a,.footer-bottom h4,.footer-col h5,.footer-bottom .social-links a{
+    color: black;
+    font-weight: 400!important;
+}
+
+    /* .mob-loader #count{
+position: absolute;
+top: calc((100vh - 95vw )/2 + 95vw);
+left: 15vw;
+    } */
+
 
     /* Dabba css */
 

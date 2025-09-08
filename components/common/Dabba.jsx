@@ -57,7 +57,7 @@ const Dabba = ({ open }) => {
                         <div className="black-overlay"></div>
                         <Image fill
                             id="div-img2"
-                            src={back2}
+                            src={"/contact-bg.webp"}
                             alt=""
                         />
                     </div>

@@ -18,105 +18,7 @@ import l6 from "../../public/greece/l-6.webp"
 const Section1 = ({ open }) => {
     gsap.registerPlugin(ScrollTrigger);
 
-    function ResponsiveLoader() {
-        // Loader ke time scroll disable kar do
-        document.body.style.overflow = "hidden";
 
-        var tl = gsap.timeline();
-        var span = document.querySelector('#page1 span');
-        var count = 0;
-        var maxCount = 50; // Faster loader for mobile
-        var animationDuration = 1.2; // Shorter duration
-        var interval = animationDuration * 1000 / maxCount;
-
-        // Counter start kar do
-        var counterInterval = setInterval(function () {
-            if (count < maxCount) {
-                count++;
-                span.innerText = count;
-            } else {
-                clearInterval(counterInterval);
-            }
-        }, interval);
-
-        tl.to("#container", {
-            width: "35vw",
-            height: "35vh",
-            ease: "power2.inOut",
-            duration: 1
-        });
-
-        tl.to("#elems2", {
-            clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
-            duration: 0.3,
-        }, "a");
-        tl.to("#elems3", {
-            clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
-            duration: 0.3,
-            delay: 0.2
-        }, "a");
-        tl.to("#elems4", {
-            clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
-            duration: 0.3,
-            delay: 0.4
-        }, "a");
-        tl.to("#elems5", {
-            clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
-            duration: 0.3,
-            delay: 0.6
-        }, "a");
-        tl.to("#elems6", {
-            clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
-            duration: 0.3,
-            delay: 0.8
-        }, "a");
-        tl.to("#page1 #count", {
-            autoAlpha: 0,
-            duration: 0.3,
-            onComplete: function () {
-                document.getElementById("count").style.display = "none";
-            }
-        }, "b")
-
-        tl.to("#page1", {
-            position: "absolute",
-            top: "23%",
-            width: "100vw",
-            duration: 0.5,
-            delay: 0.05,
-            onComplete: function () {
-                // Loader complete hone ke baad scroll enable kar do
-                document.body.style.overflow = "auto";
-                window.scrollTo(0, 0);
-            }
-        }, "c")
-        tl.to("#parent", {
-            height: "190vh",
-            duration: 0.5
-        }, "d")
-        tl.to("#partzero", {
-            display: "none",
-            width: "80%",
-            duration: 0.5
-        }, "d")
-        tl.to("#container", {
-            display: "none",
-            width: "88vw",
-            duration: 0.5
-        }, "d")
-        tl.to("#head-text", {
-            display: "block",
-            duration: 0.5
-        }, "d")
-        tl.to("#parent-2", {
-            display: "flex",
-            duration: 0.5
-        }, "d")
-        tl.to("#res", {
-            display: "flex",
-            duration: 0.5
-        })
-    }
     function Loader() {
         // Loader ke time scroll disable kar do
         document.body.style.overflow = "hidden";
@@ -286,16 +188,11 @@ const Section1 = ({ open }) => {
                 duration: 1,
                 delay: 1,
             }, "b")
-        //  .to("#page2", {
-        //     width: "80%",
-        //     // height: "140vh",
-        //     duration: 1,
-        //     delay: 1,
-        // }, "b")
+
     }
     useEffect(() => {
         if (isMobile()) {
-            ResponsiveLoader()
+            return;
         }
         else {
             Loader()
@@ -338,36 +235,38 @@ const Section1 = ({ open }) => {
                             <div id="head-text" >
                                 <h2 id="head-text-content" className="fw5" >Your Vision. Our Landscape</h2>
                             </div>
-                            <div id="container">
-                                <div className="elems" id="elems1">
-                                    <Image src={l7} fill alt="" />
+                           
+                                <div id="container">
+                                    <div className="elems" id="elems1">
+                                        <Image src={l7} fill alt="" />
 
-                                </div>
-                                <div className="elems" id="elems2">
-                                         <Image src={l1} fill alt="" />
-                                </div>
-                                <div className="elems" id="elems3">
-                                          <Image src={l8} fill alt="" />
-                                </div>
-                                <div className="elems" id="elems4">
+                                    </div>
+                                    <div className="elems" id="elems2">
+                                        <Image src={l1} fill alt="" />
+                                    </div>
+                                    <div className="elems" id="elems3">
+                                        <Image src={l8} fill alt="" />
+                                    </div>
+                                    <div className="elems" id="elems4">
                                         <Image src={l3} fill alt="" />
-                                </div>
-                                <div className="elems" id="elems5">
-                                         <Image src={l5} fill alt="" />
-                                </div>
-                                <div className="elems" id="elems6">
+                                    </div>
+                                    <div className="elems" id="elems5">
+                                        <Image src={l5} fill alt="" />
+                                    </div>
+                                    <div className="elems" id="elems6">
                                         <Image src={l6} fill alt="" />
+                                    </div>
                                 </div>
-                            </div>
-                            <span id="count" className="count-bold">
-                                0
-                            </span>
+                                <span id="count" className="count-bold">
+                                    0
+                                </span>
+                          
                         </div>
                         <div id="partzero">
                             <Image fill src={l2} alt="" />
                         </div>
                         <div className="lol" id="partzero">
-       <Image src={l8} fill alt="" />
+                            <Image src={l8} fill alt="" />
                         </div>
                     </div>
                     <div id="parent-2">

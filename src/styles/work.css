@@ -1,0 +1,51 @@
+.work-wrapper{
+    padding: 30px 60px;
+    background-color: #f4f4f4;
+    position: relative;
+    z-index: 2;
+    margin: auto;
+    transition: all .3s ease;
+    width: 100vw;
+}
+.work-wrapper h1{
+    text-align: center;
+    font-size: 50px;
+    margin: 30px 0;
+}
+.gap2{
+    height: 70vh;
+}
+.work-main{
+     transition: all .3s ease;
+     top: 0vh;
+}
+.work-down{
+top: 10vh!important;
+position: relative;
+}
+
+.work-open{
+width: 97vw;
+}
+.work-cont h2{
+    font-size: 35px;
+    margin-bottom: 35px;
+    cursor: pointer;
+    /* margin: 40px; */
+}
+.work-cont{
+    margin: 100px 0;
+}
+.work-cont h3{
+    font-weight: 100!important;
+    font-size: 27px;
+    margin: 10px 0;
+}
+.work-back{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
