@@ -3,10 +3,10 @@ import dynamic from "next/dynamic";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
-const Section2 = dynamic(() => import("../../components/home/Section2"), {
-  ssr: false,
-});
-// import Section2 from "../../components/home/Section2";
+// const Section2 = dynamic(() => import("../../components/home"), {
+//   ssr: false,
+// });
+import Section2 from "../../components/home/Section2";
 import Section1 from "../../components/home/Section1";
 import Section3 from "../../components/home/Section3";
 import Dabba from "../../components/common/Dabba";
