@@ -44,9 +44,9 @@ export default function Home() {
          </div>
 
 
-         <div id="main-mob" className="mob-block">
+         {/* <div id="main-mob" className="mob-block">
             <MobHome />
-         </div>
+         </div> */}
 
       </>
 
