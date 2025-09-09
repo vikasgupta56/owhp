@@ -31,7 +31,7 @@ const Section1 = ({ open }) => {
         var interval = animationDuration * 1000 / maxCount;
 
         // Counter start kar do
-       
+
         var counterInterval = setInterval(function () {
             if (count < maxCount) {
                 count++;
@@ -190,14 +190,16 @@ const Section1 = ({ open }) => {
 
     }
     useEffect(() => {
-        console.log(isMobile(),"mobile")
-        // if (isMobile()) {
-        //     return;
-        // }
-        // else {
-            Loader()
-            desktopAnimation();
-        // }
+
+        if (isMobile()) {
+            return;
+        }
+        else {
+            if (typeof window !== "undefined") {
+                Loader()
+                desktopAnimation();
+            }
+        }
 
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -235,32 +237,32 @@ const Section1 = ({ open }) => {
                             <div id="head-text" >
                                 <h2 id="head-text-content" className="fw5" >Your Vision. Our Landscape</h2>
                             </div>
-                           
-                                <div id="container">
-                                    <div className="elems" id="elems1">
-                                        <Image src={l7} fill alt="" />
 
-                                    </div>
-                                    <div className="elems" id="elems2">
-                                        <Image src={l1} fill alt="" />
-                                    </div>
-                                    <div className="elems" id="elems3">
-                                        <Image src={l8} fill alt="" />
-                                    </div>
-                                    <div className="elems" id="elems4">
-                                        <Image src={l3} fill alt="" />
-                                    </div>
-                                    <div className="elems" id="elems5">
-                                        <Image src={l5} fill alt="" />
-                                    </div>
-                                    <div className="elems" id="elems6">
-                                        <Image src={l6} fill alt="" />
-                                    </div>
+                            <div id="container">
+                                <div className="elems" id="elems1">
+                                    <Image src={l7} fill alt="" />
+
                                 </div>
-                                <span id="count" className="count-bold">
-                                    0
-                                </span>
-                          
+                                <div className="elems" id="elems2">
+                                    <Image src={l1} fill alt="" />
+                                </div>
+                                <div className="elems" id="elems3">
+                                    <Image src={l8} fill alt="" />
+                                </div>
+                                <div className="elems" id="elems4">
+                                    <Image src={l3} fill alt="" />
+                                </div>
+                                <div className="elems" id="elems5">
+                                    <Image src={l5} fill alt="" />
+                                </div>
+                                <div className="elems" id="elems6">
+                                    <Image src={l6} fill alt="" />
+                                </div>
+                            </div>
+                            <span id="count" className="count-bold">
+                                0
+                            </span>
+
                         </div>
                         <div id="partzero">
                             <Image fill src={l2} alt="" />
