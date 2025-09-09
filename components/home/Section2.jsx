@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
+import { isMobile } from '../../utils/common';
 import fl1 from "../../public/filming-locations/fl1.webp"
 import fl2 from "../../public/filming-locations/fl2.webp"
 import fl3 from "../../public/filming-locations/fl3.webp"
@@ -17,7 +18,7 @@ import fl10 from "../../public/filming-locations/fl10.webp"
 const Section2 = ({ open }) => {
 
     let desktopAnimation = () => {
-    gsap.registerPlugin(ScrollTrigger)
+        gsap.registerPlugin(ScrollTrigger)
 
         let tl2 = gsap.timeline({
             scrollTrigger: {
@@ -60,9 +61,12 @@ const Section2 = ({ open }) => {
             }, "b");
     }
     useEffect(() => {
+        if (isMobile()) {
+            return;
+        }
         if (typeof window !== "undefined") {
             desktopAnimation()
-            ScrollTrigger.refresh(); 
+            ScrollTrigger.refresh();
         }
 
 
