@@ -31,19 +31,22 @@ const Work = ({ open }) => {
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         if (isMobile()) { return; }
+        if (typeof window !== "undefined") {
+            workAnimation();
 
-        workAnimation();
+            ScrollTrigger.refresh();
+        }
 
     }, [])
 
     useEffect(() => {
-     if(open){
-        gsap.to(".work-main",{
+        if (open) {
+            gsap.to(".work-main", {
 
-        })
-     }
+            })
+        }
     }, [open])
-    
+
 
     const works = [
         {
