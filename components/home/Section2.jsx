@@ -15,9 +15,9 @@ import fl10 from "../../public/filming-locations/fl10.webp"
 
 
 const Section2 = ({ open }) => {
-    gsap.registerPlugin(ScrollTrigger)
 
     let desktopAnimation = () => {
+    gsap.registerPlugin(ScrollTrigger)
 
         let tl2 = gsap.timeline({
             scrollTrigger: {
