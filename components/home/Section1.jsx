@@ -81,38 +81,38 @@ const Section1 = ({ open }) => {
             }
         }, "b")
 
-        tl.to("#page1", {
-            position: "absolute",
-            top: "32%",
-            width: "90vw",
-            duration: .7,
-            delay: 0.1,
-            onComplete: function () {
-                // Loader complete hone ke baad scroll enable kar do
-                document.body.style.overflow = "auto";
-                // Extra ensure karo ki scroll top par hai
-                window.scrollTo(0, 0);
-            }
-        }, "c")
-        tl.to("#main", {
-            zIndex: "unset"
-        }, "d")
-        tl.to("#parent", {
-            height: "70vh",
-            duration: 1
-        }, "d")
-        tl.to("#partzero", {
-            height: "47vh",
-            duration: 1
-        }, "d")
-        tl.to("#head-text", {
-            display: "block",
-            duration: 1
-        }, "d")
-        tl.to("#parent-2", {
-            display: "flex",
-            duration: 1
-        }, "d")
+        // tl.to("#page1", {
+        //     position: "absolute",
+        //     top: "32%",
+        //     width: "90vw",
+        //     duration: .7,
+        //     delay: 0.1,
+        //     onComplete: function () {
+        //         // Loader complete hone ke baad scroll enable kar do
+        //         document.body.style.overflow = "auto";
+        //         // Extra ensure karo ki scroll top par hai
+        //         window.scrollTo(0, 0);
+        //     }
+        // }, "c")
+        // tl.to("#main", {
+        //     zIndex: "unset"
+        // }, "d")
+        // tl.to("#parent", {
+        //     height: "70vh",
+        //     duration: 1
+        // }, "d")
+        // tl.to("#partzero", {
+        //     height: "47vh",
+        //     duration: 1
+        // }, "d")
+        // tl.to("#head-text", {
+        //     display: "block",
+        //     duration: 1
+        // }, "d")
+        // tl.to("#parent-2", {
+        //     display: "flex",
+        //     duration: 1
+        // }, "d")
     }
 
     let desktopAnimation = () => {
