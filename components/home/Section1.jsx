@@ -191,13 +191,14 @@ const Section1 = ({ open }) => {
 
     }
     useEffect(() => {
-        if (isMobile()) {
-            return;
-        }
-        else {
+        console.log(isMobile(),"mobile")
+        // if (isMobile()) {
+        //     return;
+        // }
+        // else {
             Loader()
             desktopAnimation();
-        }
+        // }
 
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
