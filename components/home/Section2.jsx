@@ -26,7 +26,7 @@ const Section2 = ({ open }) => {
                 start: "10% 75%",
                 end: "70% 0%",
                 scrub: true,
-                markers:true
+                markers: true
             }
         });
 
@@ -60,10 +60,10 @@ const Section2 = ({ open }) => {
             }, "b");
     }
     useEffect(() => {
-         if (typeof window !== "undefined") {
-        desktopAnimation()
-
-         }
+        if (typeof window !== "undefined") {
+            desktopAnimation()
+            ScrollTrigger.refresh(); 
+        }
 
 
         return () => {
@@ -95,8 +95,8 @@ const Section2 = ({ open }) => {
                         </div>
                         <div className="width-big" id="img">
                             <Image src={fl4} fill alt='Greece Caves & Gorges' />
-                           
-                               <h3 className="img-caption">Caves & Gorges</h3>
+
+                            <h3 className="img-caption">Caves & Gorges</h3>
                         </div>
                         <div id="img">
                             <Image src={fl5} fill alt='Greece Mountains & Valleys' />
@@ -108,7 +108,7 @@ const Section2 = ({ open }) => {
                     <div className="page-2-img-sec" id="image-sec-2">
                         <div id="img">
                             <Image src={fl6} fill alt='Greece Islands & Harbors' />
-                          <h3 className="img-caption">Islands & Harbors</h3>
+                            <h3 className="img-caption">Islands & Harbors</h3>
 
                         </div>
                         <div className="down-img bottom-down" id="img">
@@ -119,7 +119,7 @@ const Section2 = ({ open }) => {
                         <div id="img">
                             <Image src={fl8} fill alt='Greece Vineyards & Olive Grove' />
 
-                        <h3 className="img-caption">Vineyards & Olive Groves</h3>
+                            <h3 className="img-caption">Vineyards & Olive Groves</h3>
                         </div>
                         <div className="down-img width-big bottom-down" id="img">
                             <div id="normal-part">
@@ -131,7 +131,7 @@ const Section2 = ({ open }) => {
                         <div id="img">
                             <Image src={fl10} fill alt='Greece Urban Cityscapes' />
                             <h3 className="img-caption">Urban Cityscapes</h3>
-                           
+
                         </div>
                     </div>
                 </div>
