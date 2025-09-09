@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Image from 'next/image'
-import gsap from 'gsap/dist/gsap';
+import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { isMobile } from '../../utils/common'
 
