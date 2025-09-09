@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import gsap from 'gsap/dist/gsap';
+import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { isMobile } from '../../utils/common';
 import l1 from "../../public/greece/l-1.webp"
@@ -31,8 +31,7 @@ const Section1 = ({ open }) => {
         var interval = animationDuration * 1000 / maxCount;
 
         // Counter start kar do
-        let imgDuration = .5
-
+       
         var counterInterval = setInterval(function () {
             if (count < maxCount) {
                 count++;
@@ -197,7 +196,7 @@ const Section1 = ({ open }) => {
         // }
         // else {
             Loader()
-            // desktopAnimation();
+            desktopAnimation();
         // }
 
         return () => {

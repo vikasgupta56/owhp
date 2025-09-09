@@ -11,9 +11,8 @@ import serv5 from "../../public/services/serv5.webp"
 
 const Section3 = ({ open }) => {
     gsap.registerPlugin(ScrollTrigger)
-    useEffect(() => {
 
-        // Page3 scroll animation
+    let animation = () => {
         let tl3 = gsap.timeline({
             scrollTrigger: {
                 trigger: "#page3-container",
@@ -43,6 +42,14 @@ const Section3 = ({ open }) => {
                 ease: "power2.out",
                 duration: 1.5
             }, "f")
+    }
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            animation()
+        }
+        // Page3 scroll animation
+
+
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
             gsap.globalTimeline.clear(); // kill timelines if needed
