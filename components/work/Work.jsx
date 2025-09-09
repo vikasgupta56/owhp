@@ -15,6 +15,7 @@ const Work = ({ open }) => {
                 start: "top 80%",
                 end: "top 60%",
                 scrub: true,
+                immediateRender: false
                 // markers: true
             }
         });
