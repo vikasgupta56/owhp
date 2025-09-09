@@ -15,7 +15,7 @@ import { toggleMenu } from "../../utils/common";
 import Footer from "../../components/common/Footer";
 import HomeSEO from "../../components/seo/Home";
 import MobHome from "../../components/home/MobHome";
-// import "../styles/mobhome.css"
+import "../styles/mobhome.css"
 
 export default function Home() {
    const [open, setOpen] = useState(false);
@@ -48,9 +48,9 @@ export default function Home() {
          </div>
 
 
-         {/* <div id="main-mob" className="mob-block">
+         <div id="main-mob" className="mob-block">
             <MobHome />
-         </div> */}
+         </div>
 
       </>
 

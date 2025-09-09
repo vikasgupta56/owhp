@@ -44,12 +44,11 @@ const Section3 = ({ open }) => {
             }, "f")
     }
     useEffect(() => {
+        
         if (typeof window !== "undefined") {
             animation()
         }
-        // Page3 scroll animation
-
-
+        
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
             gsap.globalTimeline.clear(); // kill timelines if needed

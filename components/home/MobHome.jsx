@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import gsap from 'gsap/dist/gsap';
+import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Section3 from './Section3'
 import Footer from '../common/Footer'
