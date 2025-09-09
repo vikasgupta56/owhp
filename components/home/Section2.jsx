@@ -60,7 +60,10 @@ const Section2 = ({ open }) => {
             }, "b");
     }
     useEffect(() => {
+         if (typeof window !== "undefined") {
         desktopAnimation()
+
+         }
 
 
         return () => {
