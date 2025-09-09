@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react"
-import dynamic from "next/dynamic";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import Link from "next/link";
-// const Section2 = dynamic(() => import("../../components/home"), {
-//   ssr: false,
-// });
+
 import Section2 from "../../components/home/Section2";
 import Section1 from "../../components/home/Section1";
 import Section3 from "../../components/home/Section3";
@@ -15,7 +11,6 @@ import { toggleMenu } from "../../utils/common";
 import Footer from "../../components/common/Footer";
 import HomeSEO from "../../components/seo/Home";
 import MobHome from "../../components/home/MobHome";
-// import "../styles/mobhome.css"
 
 export default function Home() {
    const [open, setOpen] = useState(false);

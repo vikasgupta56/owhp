@@ -27,7 +27,7 @@ const Section2 = ({ open }) => {
                 start: "10% 75%",
                 end: "70% 0%",
                 scrub: true,
-                markers: true
+                // markers: true
             }
         });
 
