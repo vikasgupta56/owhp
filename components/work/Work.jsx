@@ -15,14 +15,15 @@ const Work = ({ open }) => {
                 start: "top 80%",
                 end: "top 60%",
                 scrub: true,
-                immediateRender: false
+                
                 // markers: true
             }
         });
 
         tl3
             .to(".work-wrapper", {
-                width: "100vw"
+                width: "100vw",
+                immediateRender: false
             }, "a")
             .to(".work-inner h1", {
                 transform: "translateY(0%)",
